@@ -1,5 +1,6 @@
 # Capgemini Hackathon for the Hackerkiste 2021
-{:toc max_level=3 }
+**Table of Content**
+[TOC]
 
 ## Step 1: Setup Environment
 ...
