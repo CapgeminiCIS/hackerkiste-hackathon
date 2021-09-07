@@ -4,9 +4,9 @@ Welcome to Capgemini's hackathon for the [hackerkiste 2021](https://2021.hackerk
 
 ## Prerequisites
 [] Github Account
-[] Access to the provided Azure subscription
-[] IDE installed on your computer (e.g. [https://code.visualstudio.com/](Visual Studio Code))
-[] 
+[] Access to the provided Azure subscription given
+[] IDE installed on your computer (e.g. [Visual Studio Code](https://code.visualstudio.com/))
+[] Assigned to a team
 
 ## Step 1: Setup Environment
 ...
