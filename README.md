@@ -3,7 +3,7 @@ Welcome to Capgemini's hackathon for the [hackerkiste 2021](https://2021.hackerk
 
 The following architecture overview displays the services you will provision during this hackathon (on the left hand side of the box labelled 'Azure').
 <br><img src="./Architecture-Overview.jpg" width="500"/>
-<br>[Display a larger version]((Architecture-Overview.html))
+<br>[Display a larger version](Architecture-Overview.html)
 
 ## 0 Prerequisites
 All steps and hints are provided in the [/0_Prerequisite-Setup](/0_Prerequisite-Setup/README.md) folder.
