@@ -248,6 +248,29 @@ More About Terraform Resource Group Definitions:
 
 https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group
 
+## Defining a AKS
+
+An AKS (Azure Kuberentes Cluster) is a Managed Kuberenetes Cluster in Azure. 
+
+```
+resource "azurerm_kubernetes_cluster" "aks" {
+  name                = local.name
+  resource_group_name = azurerm_resource_group.global.name
+  location            = local.location
+  dns_prefix          = local.name
+  node_resource_group = format("%s-%s", azurerm_resource_group.global.name, "aks-rg")
+
+  default_node_pool {
+    name       = "default"
+    node_count = 2
+    vm_size    = "Standard_D2s_v3"
+  }
+
+  identity {
+    type = "SystemAssigned"
+  }
+}
+```
 
 # 2. Run your Pipeline
 
