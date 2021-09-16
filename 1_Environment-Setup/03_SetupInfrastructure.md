@@ -208,8 +208,11 @@ https://www.terraform.io/docs/language/state/index.html
 
 ## Data and Resource
 
-There are two types of definitions we use to define Resources in Azure.
+There are different types of definitions we use to define Resources in the Code.
 
+### Locals
+
+Locals are local Variables
 ### Data
 
 Used to get available Resources on Azure and read out there current Configuration for later Use. Data is never Altered by Terraform as it is an External Resource.
@@ -219,15 +222,21 @@ Used to get available Resources on Azure and read out there current Configuratio
 A Resource is a Managed object by Terraform if terraform finds a difference in the Terraform State or the Actual Status of the Resource in Azure it will create a Plan on how to alter the State so it matches the Definitions in your Terraform Code again. 
 
 There are Mandetory and Optional Settings for each resource Type.
-
 ## Resource Group
 
-We define the following resource Group as Data for later use. As this is a shared Resource for all Participants we cant use a Resource definition.
+We define the following resource Group as a Resource for later use. In our Example everyone will need a different Resource Group Name.
+Alter your Resource Group Name in the Locals.
+
+locals {
+  name     = "yourname"
+  location = "West Europe"
+}
 
 ```
-#Get resource group
-data "azurerm_resource_group" "wsdevops" {
-  name = "ws-devops"
+
+resource "azurerm_resource_group" "global" {
+  name     = local.name
+  location = local.location
 }
 
 ```
