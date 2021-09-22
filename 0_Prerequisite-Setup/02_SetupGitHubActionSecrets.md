@@ -66,7 +66,7 @@ This is the Connection Data needed for the Azure Subscription.
 For this Hackathon we will provide you with it:
 
 Secret:
-AZURE_AD_CLIENT_ID = `#`
+AZURE_AD_CLIENT_SECRET = `#`
 ### AZURE_AD_TENANT_ID
 
 This is the Connection Data needed for the Azure Subscription.
