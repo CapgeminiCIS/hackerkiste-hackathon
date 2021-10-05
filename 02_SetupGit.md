@@ -1,13 +1,11 @@
 # How to work with Git
 
-# General 
-
-## What is Git?
+# What is Git?
 Git is a version control system that developers use all over the world. It helps you track different versions of your code and collaborate with other developers. But Git is not just for code, it can be used for any kind of text document.
 
 # Setup Git
-With using Visual Studio Code (VS Code), all tools to use Git are already included and can be Found on the left side behind this symbol <img src="./images/Git.PNG" width="100"/>
-
+With using Visual Studio Code (VS Code), all tools to use Git are already included and can be Found on the left side behind this symbol 
+<br> <img src="./images/Git.PNG" width="100"/>
 # Get Started with your Github project
 In the last tutorial we used a "*fork*" to create a copy of the project in your own Github account. <br>
 
@@ -16,7 +14,7 @@ In this Step we will now copy the project to your computer. Therefore we will us
 <br><img src="./images/get_repo_url.PNG" width="400"/>
 
 In the clone window you can copy your *project url*
-> In example https://github.com/***/azure-dev-hackathon.git
+> For example https://github.com/***/hackerkiste-2021-hackathon-dev.git
 
 ## Add project to visual studio code
 When opening a new Window of Visual Studio Code you will see the *Getting Started* page which offers you the option to *Clone Git Repository...*
