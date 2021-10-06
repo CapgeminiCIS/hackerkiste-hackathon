@@ -85,6 +85,19 @@ For this Hackathon we will provide you with it:
 Secret:
 AZURE_SUBSCRIPTION_ID = `#`
 
+### UNIQUE_NAME
+
+This is the Name for all of your resources on Azure.
+
+Please provide a Unique Team Name it should be written all lower case, maximal 7 letter long and only contain letters. 
+
+Examples: 
+teamone
+first
+
+Secret:
+UNIQUE_NAME = `#`
+
 # Whats Next?
 
 Continue on the [Main Page](README.md)

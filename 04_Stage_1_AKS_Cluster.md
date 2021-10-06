@@ -47,7 +47,7 @@ https://www.terraform.io/intro/index.html
 
 Everyone in your group should be familiar with the overall Concept of Containers, Terraform and GitHub to continue. If not try to share your Knowledge about it and ask Questions about it
 
-# 4. Setting up the Pipeline
+# 5. Setting up the Pipeline
 
 The first Step in Creating a Pipeline with GitHub Actions would normally be to Select a Template and Start from there.
 
@@ -112,6 +112,17 @@ https://docs.github.com/en/actions/reference/events-that-trigger-workflows#workf
 ## Environment Variables:
 
 The Environment Variables are set in the Code Runners the Pipeline uses. In our Example these are known Variables by Terraform which it uses to Authenticate against Azure.
+
+Also we specified a Variable that the Terraform Code will use internally which is the previous created Variable UNIQUE_NAME.
+
+```
+    env:
+      ARM_CLIENT_ID: ${{ secrets.AZURE_AD_CLIENT_ID }}
+      ARM_CLIENT_SECRET: ${{ secrets.AZURE_AD_CLIENT_SECRET }}
+      ARM_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+      ARM_TENANT_ID: ${{ secrets.AZURE_AD_TENANT_ID }}
+      TF_VAR_uniquename: ${{ secrets.UNIQUE_NAME }}
+```
 ## Code runner
 
 After we define the Triggers and the Name of the workflow we need to Specify its "`jobs`".
@@ -173,23 +184,23 @@ https://learn.hashicorp.com/tutorials/terraform/azure-build?in=terraform/azure-g
 
 ## terraform init
 
-Terraform Init sets up the Current Project Environment and connects to the Azure Storage Account Defined in your "`terraform/main.tf`"
+Terraform Init sets up the Current Project Environment and connects to the Azure Storage Account Defined in your "`stage_1_AKS_Cluster/main.tf`"
 
 ## Terraform fmt
-Terraform fmt allows you to Format your Code automatically so it matches the expected Syntax. It Beautyfies your code aswell for better readablity. 
+Terraform fmt allows you to Format your Code automatically so it matches the expected Syntax. It Beautyfies your code as well for better read ability. 
 
-We set "`continue-on-error: false`" so you get Automatic Linting and the Pipeline doesnt allow properly Formatted code.
+We set "`continue-on-error: true`" so you get Automatic Linting and the Pipeline doesn't allow properly Formatted code.
 
 ## Terraform Plan
 Creates a Plan of the Changes needed to be done on Azure to accomplish the defined Settings in your Terraform Code.
 
 ## Dependencies and Environments
 
-You can Setup Concurrent or sequential Tasks with Pipelines. In our example we made a Sequential Task by definining defining that the Seconds Task needs the First:
+You can Setup Concurrent or sequential Tasks with Pipelines. In our example we made a Sequential Task by defining defining that the Seconds Task needs the First:
 
 "`needs: [terraform]`"
 
-Also we Setup two different Environments "production" and "developement" those are necessary for an Approval Workflow. More on that later.
+Also we Setup two different Environments "production" and "development" those are necessary for an Approval Workflow. More on that later.
 
 
 ## Terraform apply
@@ -253,21 +264,21 @@ Used to get available Resources on Azure and read out there current Configuratio
 
 A Resource is a Managed object by Terraform if terraform finds a difference in the Terraform State or the Actual Status of the Resource in Azure it will create a Plan on how to alter the State so it matches the Definitions in your Terraform Code again. 
 
-There are Mandetory and Optional Settings for each resource Type.
+There are Mandatory and Optional Settings for each resource Type.
 ## Resource Group
 
 We define the following resource Group as a Resource for later use. In our Example everyone will need a different Resource Group Name.
 Alter your Resource Group Name in the Locals.
 
 locals {
-  name     = "yourname"
+  name     = $env.
   location = "West Europe"
 }
 
 ```
 
 resource "azurerm_resource_group" "global" {
-  name     = local.name
+  name     = var.uniquename
   location = local.location
 }
 
@@ -304,6 +315,8 @@ resource "azurerm_kubernetes_cluster" "aks" {
 }
 ```
 
+
+
 # 2. Run your Pipeline
 
 After you Set up your Secrets and fixed the Code in your Repository.
@@ -318,11 +331,3 @@ Now Select Run workflow on the Right side.
 
 Wait for your Workflow to finish.
 If the Task does not run through you may ask one of us to Help you out.
-## Check your WebApp is online after approx. 5 minutes
-
-https://`[yourWebAppName]`.azurewebsites.net/
-
-You should see a &quot;Hey, Node developers&quot; welcome screen.
-
-Congratulations, you have deployed your first WebApp infrastructure.
- Now, you can go ahead and deploy some code to your WebApp.
