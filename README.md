@@ -28,6 +28,6 @@ All steps and hints are provided in the corresponding Readme Files.
 The Hackathon is divided into several Stages which build upon each other
 
 1. Stage 1 Creating your Initial Infrastructure on Azure [Stage 1 AKS Cluster](04_Stage_1_AKS_Cluster.md)
-2. Stage 2 Hosting your first Container [Stage 2 Single Container](05_Stage_2_SingleContainer.md)
-3. Stage 3 Managing your ingoing Traffic [Stage 3 AKS Cluster](06_Stage_3_Ingress.md)
+2. Stage 2 Managing your ingoing Traffic [Stage 2 AKS Cluster](05_Stage_2_Ingress.md)
+3. Stage 3 Hosting your first Container [Stage 3 Single Container](06_Stage_3_SingleContainer.md)
 4. Stage 4 Create your own Infrastructure [Stage 4 Frontend_Backend](07_Stage_4_Frontend_Backend.md)
