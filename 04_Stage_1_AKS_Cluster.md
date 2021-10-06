@@ -7,7 +7,7 @@ You should now have Completed the Following things:
 2. Setup the Example Code in your Account
 3. Added the Repository Secrets to the Example Code
 
-Next you will get an Overview over the Example Code to Setup your first own AKS Cluster on Azure via Terraform. This will only be the most basic Infrastructure Setup. In a later Steps we will Alter the Content.
+Next you will get an overview over the example code to setup your first own AKS Cluster on Azure via Terraform. This will only be the most basic infrastructure setup. In a later steps we will alter the Content.
 
 If you want to learn more about the concept of a pipeline you can do it here:
 
@@ -17,7 +17,7 @@ If you want to learn more about the concept of a pipeline you can do it here:
 
 We mentioned many time before that you will create an AKS Cluster but what is AKS actually?
 AKS stands for Azure Kubernetes Cluster and is managed Kubernetes Cluster on Azure. 
-Kubernetes is the most Commonly used Container Management Platform created by Google.
+Kubernetes is the most commonly used Container Management Platform created by Google.
 If you want to know more about it you should check out these links
 
 [What is Kubernets](https://azure.microsoft.com/de-de/topic/what-is-kubernetes/)
@@ -27,11 +27,11 @@ If you want to know more about it you should check out these links
 [But why use Container in the first place?](https://www.youtube.com/watch?v=Gjnup-PuquQ)
 
 ### What it all boils down to is:
-Containers allow you to run your Software everywhere. You don't need to worry about Dependencies and the Operating systems.
+Containers allow you to run your software everywhere. You don't need to worry about dependencies and the operating systems.
 
 # 2. GitHub and GitHub Actions
 
-GitHub is the Leading Platform to Manage and Share Code and with the Introduction of GitHub Actions it provides you with a comprehensive way to Deploy your Code as well.
+GitHub is the leading platform to manage and share code. With GitHub Actions it provides you with a comprehensive way to deploy your code as well.
 
 Automating your Code Deployment makes it more reliable and repeatable.
 
@@ -45,17 +45,17 @@ https://www.terraform.io/intro/index.html
 
 # 4. Getting Started
 
-Everyone in your group should be familiar with the overall Concept of Containers, Terraform and GitHub to continue. If not try to share your Knowledge about it and ask Questions about it
+Everyone in your group should be familiar with the overall concept of containers, Terraform and GitHub to continue. If not try to share your knowledge about it and feel free to ask questions.
 
 # 5. Setting up the Pipeline
 
-The first Step in Creating a Pipeline with GitHub Actions would normally be to Select a Template and Start from there.
+The first step in creating a pipeline with GitHub Actions would normally be to select a template and start from there.
 
-To do so you would go to Actions in your Code Repository and select an appropriate Template or start from Scratch with an empty one.
+To do so you would go to actions in your code repository and select an appropriate template or start from scratch with an empty one.
 
-In our Example we already Created the necessary Files. So to say our own Template.
+In our example we already created the necessary files. So to say our own template.
 
-Your first Task is to go into your Repository and look at the Following file.
+Your first task is to go into your repository and look at the following file.
 
 >_Warning: The formatting of YAML (yml) files is based on spaces and tabs and therefore the following lines should be copied with care.
 > It is advised to use Visual Studio Code to validate the copied file._
@@ -93,27 +93,27 @@ jobs:
 
 ## Terraform GitHub Actions
 
-The Pipeline we are Proposing here is using Terraform to create the Resources on Azure.
+The pipeline we are proposing here is using terraform to create the resources on Azure.
 
 Github Terraform Doc: 
 <br> https://github.com/hashicorp/setup-terraform
 
 ## Pipeline Name
 
-Next we Specify the Name of our GitHub Action in our Example "`name: Stage 1 AKS Cluster`".
+Next we specify the name of our GitHub action in our example "`name: Stage 1 AKS Cluster`".
 
 ## Triggers
 
-The Code Starts by using "`on: workflow_dispatch`" which means one of the Triggers to Start this Pipeline is to do it Manually.
+The code starts by using "`on: workflow_dispatch`" which means: The Pipeline has to be started Manually.
 
-There are many Automatic triggers you can use, to learn more about Triggers check this:
+There are many automatic triggers you can use. To learn more about triggers check this:
 https://docs.github.com/en/actions/reference/events-that-trigger-workflows#workflow_dispatch
 
 ## Environment Variables:
 
-The Environment Variables are set in the Code Runners the Pipeline uses. In our Example these are known Variables by Terraform which it uses to Authenticate against Azure.
+The environment variables are set in the code runners the pipeline uses. In our example these are known variables by Terraform which it uses to authenticate against Azure.
 
-Also we specified a Variable that the Terraform Code will use internally which is the previous created Variable UNIQUE_NAME.
+Also we specified a variable that the Terraform code will use internally which is the previous created variable UNIQUE_NAME.
 
 ```
     env:
@@ -124,13 +124,8 @@ Also we specified a Variable that the Terraform Code will use internally which i
       TF_VAR_uniquename: ${{ secrets.UNIQUE_NAME }}
 ```
 ## Code runner
-
-After we define the Triggers and the Name of the workflow we need to Specify its "`jobs`".
-In our Example we split the Pipeline into two Jobs "`terraform`" and "`terraformapply`".
-
-This is done to allow for manual Approval. More on that later.
-
-Next we Specify what image we Expect our job to run on:
+TODO
+Next we specify what image we expect our job to run on:
 "`runs-on: ubuntu-latest`"
 
 ```
@@ -143,14 +138,14 @@ jobs:
 
 ## Defaults
 
-In Our Case the terraform Code is Located in a Subdirectory why we need to define the "`working-directory`" for all upcoming Terraform Tasks. 
+In our Case the terraform code is Located in a subdirectory. We need to define the "`working-directory`" for all upcoming terraform tasks. 
 
-To learn more about the Workflow Syntax and Jobs visit:
+To learn more about the workflow syntax and jobs visit:
 https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobs
 
 ## Deployment of AppService and WebApp
 
-Next the Script manages Terraform with the Build in Terraform CLI "`uses: hashicorp/setup-terraform@v1`".
+Next the script manages terraform with the build in Terraform CLI "`uses: hashicorp/setup-terraform@v1`".
 ```
     - name: Checkout
       uses: actions/checkout@v2
@@ -172,50 +167,50 @@ Next the Script manages Terraform with the Build in Terraform CLI "`uses: hashic
 ## Checkout
 
 Checkout gets the Branch from Github onto the Worker.
-As the Worker is created everytime from Scratch every Job needs to get the Sources again.
+As the worker is created from scratch every job needs to get the sources again.
 
 ## terraform cli
 
 `   - uses: hashicorp/setup-terraform@v1`
-Defines the Buildin Commands to be available on the worker from GitHub.
+Defines the build-in commands to be available on the worker from GitHub.
 
 The CLI documentation can be found here.
 https://learn.hashicorp.com/tutorials/terraform/azure-build?in=terraform/azure-get-started
 
 ## terraform init
 
-Terraform Init sets up the Current Project Environment and connects to the Azure Storage Account Defined in your "`stage_1_AKS_Cluster/main.tf`"
+Terraform init sets up the current project environment and connects to the Azure Storage account defined in your "`stage_1_AKS_Cluster/main.tf`"
 
 ## Terraform fmt
-Terraform fmt allows you to Format your Code automatically so it matches the expected Syntax. It Beautyfies your code as well for better read ability. 
+Terraform fmt allows you to format your code automatically so it matches the expected syntax. It beautyfies your code as well for better readability. 
 
-We set "`continue-on-error: true`" so you get Automatic Linting and the Pipeline doesn't allow properly Formatted code.
+We set "`continue-on-error: true`" so you get automatic linting and the pipeline doesn't allow properly formatted code.
 
 ## Terraform Plan
-Creates a Plan of the Changes needed to be done on Azure to accomplish the defined Settings in your Terraform Code.
+Creates a plan of the changes needed to be done on Azure to accomplish the defined settings in your Terraform Code.
 
 ## Dependencies and Environments
 
-You can Setup Concurrent or sequential Tasks with Pipelines. In our example we made a Sequential Task by defining defining that the Seconds Task needs the First:
+You can setup concurrent or sequential tasks with pipelines. In our example we made a sequential task by defining defining that the seconds task needs the first:
 
 "`needs: [terraform]`"
 
-Also we Setup two different Environments "production" and "development" those are necessary for an Approval Workflow. More on that later.
+Also we setup two different environments "production" and "development" those are necessary for an approval workflow. More on that later.
 
 
 ## Terraform apply
 
-The Final Step is to Apply the Terraform Code which will Setup the Defined Environment on Azure.
+The final step is to apply the Terraform Code which will setup the defined environment on Azure.
 
 ## Terraform main.tf
 
-Your /terrform/main.tf contains all the Setting for the Desired Infrastructure on Azure.
+Your /stage_1_AKS_Cluster/main.tf contains all the setting for the desired infrastructure on Azure.
 
-Every Terraform Project needs a Backend to Store the State by default a Local file will be used but there are many Different Available Backends. In our Case we Provide you with an Azure Storageaccount.
-Which is Defined by first Stating the Resource Group and Storage Account Name. Inside a Storage Account we also Specify an Existing Container Name. The here Selected Key is the State File Terraform will use. If it doesnt exist it will be created by the Terraform CLI. 
-The Name of the Key needs to be Unique for every Participant. (only Lowercase and numbers allowed)
+Every terraform project needs a backend to store the state by default a local file will be used but there are many different available backends. In our case we provide you with an Azure-Storage-Account.
+The account is defined by first stating the resource group and storage account name. Inside a storage account we also specify an existing container name. The here selected key is the state file Terraform will use. If it does'nt exist it will be created by the Terraform CLI. 
+The name of the key needs to be unique for every participant (only lowercase and numbers allowed).
 
-Also we define the Version of the AzureRM Provider
+Also we define the version of the AzureRM Provider
 
 ```
 terraform {
@@ -251,34 +246,35 @@ https://www.terraform.io/docs/language/state/index.html
 
 ## Data and Resource
 
-There are different types of definitions we use to define Resources in the Code.
+There are different types of definitions we use to define resources in the code.
 
 ### Locals
 
-Locals are local Variables
+Locals are local variables
 ### Data
 
-Used to get available Resources on Azure and read out there current Configuration for later Use. Data is never Altered by Terraform as it is an External Resource.
+Used to get available resources on Azure and read out there current configuration for later use. Data is never altered by Terraform as it is an external resource.
 
 ### Resource
 
-A Resource is a Managed object by Terraform if terraform finds a difference in the Terraform State or the Actual Status of the Resource in Azure it will create a Plan on how to alter the State so it matches the Definitions in your Terraform Code again. 
+A Resource is a managed object by Terraform. If Terraform finds a difference in the Terraform State or the actual status of the resource in Azure it will create a plan on how to alter the state so it matches the definitions in your Terraform Code again. 
 
-There are Mandatory and Optional Settings for each resource Type.
+There are mandatory and optional settings for each resource type.
 ## Resource Group
 
-We define the following resource Group as a Resource for later use. In our Example everyone will need a different Resource Group Name.
-Alter your Resource Group Name in the Locals.
+We define the following resource group as a resource for later use. In our example everyone will need a different resource group name.
+
+Alter your resource group name in the locals.
 
 locals {
-  name     = $env.
+  name     = var.uniquename
   location = "West Europe"
 }
 
 ```
 
 resource "azurerm_resource_group" "global" {
-  name     = var.uniquename
+  name     = local.name
   location = local.location
 }
 
@@ -293,7 +289,7 @@ https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/
 
 ## Defining a AKS
 
-An AKS (Azure Kuberentes Cluster) is a Managed Kuberenetes Cluster in Azure. 
+An AKS (Azure Kubernetes Cluster) is a Managed Kubernetes Cluster in Azure. 
 
 ```
 resource "azurerm_kubernetes_cluster" "aks" {
@@ -319,8 +315,8 @@ resource "azurerm_kubernetes_cluster" "aks" {
 
 Azure Container Registry
 
-To Host your Container Images we already Implemented Everything you need into the Terraform Pipeline.
-This code Connects the Cluster to our Central Container Registry and allows the Kubernetes Cluster to Pull Images from it.
+To Host your container images we already implemented everything you need into the Terraform Pipeline.
+This code connects the cluster to our Central Container Registry and allows the Kubernetes Cluster to Pull Images from it.
 
 [Learn more about Managed Identities](https://docs.microsoft.com/de-de/azure/active-directory/managed-identities-azure-resources/overview)
 
@@ -348,23 +344,23 @@ resource "azurerm_role_assignment" "acr" {
 
 # 6. Run your Pipeline
 
-After you Set up your Secrets and fixed the Code in your Repository.
-You can try to run your Workflow.
-To do so go to Actions and select the Terraform workflow on the Left site.
+After you set up your secrets and fixed the code in your repository.
+You can try to run your workflow.
+To do so go to actions and select the Terraform workflow on the left site.
 
 Stage 1 AKS Cluster
 
-Now Select Run workflow on the Right side.
+Now select "Run Workflow" on the right side.
 
 <br><img src="./images/runWorkflow.PNG" width="800"/><br>
 
 ## Workflow Progress
 
-Wait for your Workflow to finish.
-If the Task does not run through you may ask one of us to Help you out.
+Wait for your workflow to finish.
+If the task does not run through you may ask one of us to help you out.
 
 ## Checkout your Resources on Azure
 
-They should be named by your previously selected unique Name.
+They should be named by your previously selected unique name.
 
 [Portal Azure](https://portal.azure.com/#blade/HubsExtension/BrowseResourceGroups)

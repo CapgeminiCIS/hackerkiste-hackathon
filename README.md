@@ -20,7 +20,7 @@ Please follow the instructions Step by Step
 7. Clone the Code [Setup Git in your IDE](02_SetupGit.md)
 8. [Setup your Secrets](03_SetupGitHubActionSecrets.md)
 9. Receive your user account to the Azure subscription
-10. Test your access to the Azure subscription (https://azure.microsoft.com/de-de/account/)
+10. Test your access to the Azure subscription (https://portal.azure.com)
 11. Install Live Share and use it :)
     https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare
 
