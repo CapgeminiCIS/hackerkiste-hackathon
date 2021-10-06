@@ -315,11 +315,44 @@ resource "azurerm_kubernetes_cluster" "aks" {
 }
 ```
 
-# 2. Run your Pipeline
+## ACR
+
+Azure Container Registry
+
+To Host your Container Images we already Implemented Everything you need into the Terraform Pipeline.
+This code Connects the Cluster to our Central Container Registry and allows the Kubernetes Cluster to Pull Images from it.
+
+[Learn more about Managed Identities](https://docs.microsoft.com/de-de/azure/active-directory/managed-identities-azure-resources/overview)
+
+[Learn more about ACR](https://azure.microsoft.com/de-de/services/container-registry/)
+
+```
+  identity {
+    type = "SystemAssigned"
+  }
+}
+
+# Reference to a externally created Container Registry
+data "azurerm_container_registry" "acr" {
+  name                = "2021hackathon"
+  resource_group_name = "meta"
+}
+
+# Registry Pull permission for the AKS Cluster
+resource "azurerm_role_assignment" "acr" {
+  scope                = data.azurerm_container_registry.acr.id
+  role_definition_name = "AcrPull"
+  principal_id         = azurerm_kubernetes_cluster.aks.kubelet_identity.0.object_id
+}
+```
+
+# 6. Run your Pipeline
 
 After you Set up your Secrets and fixed the Code in your Repository.
 You can try to run your Workflow.
 To do so go to Actions and select the Terraform workflow on the Left site.
+
+Stage 1 AKS Cluster
 
 Now Select Run workflow on the Right side.
 
@@ -329,3 +362,9 @@ Now Select Run workflow on the Right side.
 
 Wait for your Workflow to finish.
 If the Task does not run through you may ask one of us to Help you out.
+
+## Checkout your Resources on Azure
+
+They should be named by your previously selected unique Name.
+
+[Portal Azure](https://portal.azure.com/#blade/HubsExtension/BrowseResourceGroups)
