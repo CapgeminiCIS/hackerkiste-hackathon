@@ -98,6 +98,11 @@ first
 Secret:
 UNIQUE_NAME = `#`
 
+
+# Result
+
+<br><img src="./images/SecretOverview.PNG" width="400"/><br>
+
 # Whats Next?
 
 Continue on the [Main Page](README.md)

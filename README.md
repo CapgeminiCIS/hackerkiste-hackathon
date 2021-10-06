@@ -21,7 +21,8 @@ Please follow the instructions Step by Step
 8. [Setup your Secrets](03_SetupGitHubActionSecrets.md)
 9. Receive your user account to the Azure subscription
 10. Test your access to the Azure subscription
-
+11. Install Live Share and use it :)
+    https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare
 
 ## Let the Hacking Begin
 All steps and hints are provided in the corresponding Readme Files.
