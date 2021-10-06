@@ -1,12 +1,21 @@
 # Stage 2 Ingress Controller
 
+## Hosting a Single Container
+
 In this stage you will learn all about Ingress Controllers and why we need them.
 
 A Ingress Controller is a fancy name for a Proxy or LoadBalancer which routes the Traffic to its designated Services inside your Kubernetes Cluster
 
 https://www.nginx.com/resources/glossary/kubernetes-ingress-controller/
 
-In our Example Code the Pipeline is already ready to go and will Deploy an nginx based Ingress Controller with predefined.
+In our Example Code the Pipeline is already ready to go and will Deploy an nginx based Ingress Controller, which we will use later to create our Routes.
+
+To make our Lives easier we used a Publicly available Helm Chart. But we wont go deeper into Helm Charts here so you kindly just need to Accept this as a Service in your Cluster to Manage your Input Signals.
+https://helm.sh/
+ingress-nginx/ingress-nginx
+
+
+Simply run Stage 2 Workflow
 
 `#File: .github/workflows/ingress.yml`
 ```
@@ -30,42 +39,4 @@ In our Example Code the Pipeline is already ready to go and will Deploy an nginx
       - name: "Install Ingress Controller"
         run: |
           helm upgrade ingress-nginx ingress-nginx/ingress-nginx --install --create-namespace --namespace ingress-controller      
-```
-
-`#File: stage_2_Ingress/ingress.yaml`
-```
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: example-ingress
-  annotations:
-    #nginx.org/rewrites: "serviceName!=nginx rewrite=/$3"
-    #nginx.ingress.kubernetes.io/app-root: 
-    #nginx.ingress.kubernetes.io/rewrite-target: /$3
-spec:
-  ingressClassName: nginx
-  rules:
-    - http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: nginx
-                port:
-                  number: 80
-          - path: /backend/java
-            pathType: Prefix
-            backend:
-              service:
-                name: java
-                port:
-                  number: 80
-          - path: /backend/go
-            pathType: Prefix
-            backend:
-              service:
-                name: go
-                port:
-                  number: 80                
 ```

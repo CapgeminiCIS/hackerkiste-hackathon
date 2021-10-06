@@ -1,4 +1,7 @@
-# Hosting a Single Container
+# Stage 3 Hosting a Single Container
+
+Finally you can deploy your first Container/Pod onto your Kubernetes Cluster.
+
 
 ## Introduction
 
