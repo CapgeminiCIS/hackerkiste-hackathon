@@ -33,7 +33,6 @@ You can either open the project in the current window or open it in a new window
 
 ## Work with Git 
 
-<TODO Add Text>
 In the new window you will now see all files of the projects.
 <img src="./images/work_in_project.PNG" width="400"/><br>
 
@@ -51,7 +50,7 @@ When you select one of the files, Git will show you the difference between the l
 <br><img src="./images/changes_in_git.PNG" width="600"/><br>
 
 ### Create a Commit
-To finally save the changes and add a new version to git you need to make a commit which contains all changed files you want to bundle together. Therefore you need to select the changes you want to add by presseing the **plus** next to the filename. All added files are then displayed in the "Stage" area.
+To finally save the changes and add a new version to git you need to make a commit which contains all changed files you want to bundle together. Therefore you need to select the changes you want to add by pressing the **plus** next to the filename. All added files are then displayed in the "Stage" area.
 
 To create a commit which contains all staged files, you need to add a **Commit Message** and press *Enter* 
 <br><img src="./images/create_commit.PNG" width="400"/><br>
@@ -88,7 +87,8 @@ After *Pushing* your *commit* you can now also see your changes in your GitHub P
 * [Git Cheat Sheet](https://about.gitlab.com/images/press/git-cheat-sheet.pdf)
 
 
-
+# Whats Next?
+Continue on the [Main Page](README.md)
 
 
 
