@@ -315,8 +315,6 @@ resource "azurerm_kubernetes_cluster" "aks" {
 }
 ```
 
-
-
 # 2. Run your Pipeline
 
 After you Set up your Secrets and fixed the Code in your Repository.
