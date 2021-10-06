@@ -85,4 +85,6 @@ For this Hackathon we will provide you with it:
 Secret:
 AZURE_SUBSCRIPTION_ID = `#`
 
-# Good Luck and have Fun!
+# Whats Next?
+
+Continue on the [Main Page](README.md)

@@ -29,3 +29,5 @@ To share the Repository to everyone on your Team open the Repository select
 
 For the Next Step you will Setup the Connection Data between GitHub and Azure where your Resources will be Deployed.
 The needed Credentials will be Provided during the Hackathon.
+
+Continue on the [Main Page](README.md)
