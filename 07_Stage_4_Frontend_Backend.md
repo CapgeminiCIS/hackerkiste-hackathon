@@ -20,6 +20,6 @@ These are just some of the things you might want to consider
   - Setup your own Wordpress for example
   - Setup your own [OwnCloud Server](https://owncloud.com/) or [NextCloud](https://nextcloud.com/)
 - (Experts only) What are Service Meshs?
-- Setup your own [Istio](https://istio.io/latest/about/service-mesh/) Installation
+  - Setup your own [Istio](https://istio.io/latest/about/service-mesh/) Installation
 
 In the end we would like you to present what you done today and what you learned.
