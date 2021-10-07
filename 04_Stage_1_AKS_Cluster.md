@@ -361,6 +361,13 @@ If the task does not run through you may ask one of us to help you out.
 
 ## Checkout your Resources on Azure
 
-They should be named by your previously selected unique name.
+They should be named after your previously selected unique name.
+
+There will be a Resource Group called (unique_name) and a Resource Group called (unique_name)_aks_rg.
 
 [Portal Azure](https://portal.azure.com/#blade/HubsExtension/BrowseResourceGroups)
+
+The first one contains the Cluster Definition the second one all needed Resources.
+As you Kubernetes Cluster is fully integrated by Azure it can create Resources in you subscriptions as it needs them.
+
+Go into your Cluster Definition and check out the Tabs on the left side. Can you find your already running Services inside the Cluster?
