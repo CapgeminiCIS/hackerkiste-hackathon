@@ -18,7 +18,7 @@ These are just some of the things you might want to consider
 - Enhance the Deployment Pipeline
 - Setup [Several Services](https://kubernetes.io/docs/tutorials/stateful-application/) inside your Kubernetes Cluster and share them with the others.
   - Setup your own Wordpress for example
-  - Setup your own [OwnCloud Server](https://owncloud.com/)
+  - Setup your own [OwnCloud Server](https://owncloud.com/) or [NextCloud](https://nextcloud.com/)
 - (Experts only) What are Service Meshs?
 - Setup your own [Istio](https://istio.io/latest/about/service-mesh/) Installation
 
