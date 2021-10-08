@@ -10,16 +10,15 @@ If you want to check out the Cluster some more you may [connect to the cluster](
 
 
 ## Whats Next?
-
-Try to get Creative in your Team.
+Get creative within your team.
 
 These are just some of the things you might want to consider
-- Develope an Architecture and try to implement it in your Solution
-- Enhance the Deployment Pipeline
-- Setup [Several Services](https://kubernetes.io/docs/tutorials/stateful-application/) inside your Kubernetes Cluster and share them with the others.
+- Develope an architecture and try to implement it in your solution
+- Enhance the deployment pipeline
+- Setup [Several Services](https://kubernetes.io/docs/tutorials/stateful-application/) inside your Kubernetes cluster and share them with the others.
   - Setup your own Wordpress for example
   - Setup your own [OwnCloud Server](https://owncloud.com/) or [NextCloud](https://nextcloud.com/)
-- (Experts only) What are Service Meshs?
-  - Setup your own [Istio](https://istio.io/latest/about/service-mesh/) Installation
+- (Experts only) What are service meshs?
+  - Setup your own [Istio](https://istio.io/latest/about/service-mesh/) installation
 
 In the end we would like you to present what you done today and what you learned.
