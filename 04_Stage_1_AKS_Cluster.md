@@ -99,20 +99,19 @@ Also we specified a variable that the Terraform code will use internally which i
       ARM_TENANT_ID: ${{ secrets.AZURE_AD_TENANT_ID }}
       TF_VAR_uniquename: ${{ secrets.UNIQUE_NAME }}
 ```
-## Code runner
+## Code Runner
 Next we specify what image we expect our job to run on:
 "`runs-on: ubuntu-latest`"
 
 ```
 jobs:
-
   deploy:
     runs-on: ubuntu-latest
     
 ```
 
 ## Defaults
-In our case the Terraform code is Located in a subdirectory. We need to define the "`working-directory`" for all upcoming Terraform tasks. 
+In our case the Terraform code is located in a subdirectory. We need to define the "`working-directory`" for all upcoming Terraform tasks.
 
 To learn more about the workflow syntax and jobs visit:
 https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobs
@@ -141,7 +140,7 @@ Next the script manages Terraform with the built in Terraform CLI "`uses: hashic
 Checkout gets the branch from Github onto the worker.
 As the worker is created from scratch every job needs to get the sources again.
 
-## Terraform cli
+## Terraform CLI
 `   - uses: hashicorp/setup-Terraform@v1`
 Defines the built-in commands to be available on the worker from GitHub. The CLI documentation can be found here: https://learn.hashicorp.com/tutorials/Terraform/azure-build?in=Terraform/azure-get-started
 
@@ -153,7 +152,7 @@ Terraform fmt allows you to format your code automatically so it matches the exp
 
 We set "`continue-on-error: true`" so you get automatic linting and the pipeline doesn't allow properly formatted code.
 
-## Terraform Plan
+## Terraform plan
 Creates a plan of the changes needed to be done on Azure to accomplish the defined settings in your Terraform code.
 
 ## Dependencies and Environments
@@ -162,7 +161,6 @@ You can setup concurrent or sequential tasks with pipelines. In our example we m
 "`needs: [Terraform]`"
 
 Also we setup two different environments "production" and "development" those are necessary for an approval workflow. More on that later.
-
 
 ## Terraform apply
 The final step is to apply the Terraform code which will setup the defined environment on Azure.
@@ -296,7 +294,7 @@ resource "azurerm_role_assignment" "acr" {
 After you set up your secrets and fixed the code in your repository. You can try to run your workflow. To do so go to actions and select the Terraform workflow on the left site.
 
 ## Stage 1: AKS Cluster
-Now select "Run Workflow" on the right side.
+Now select the created "Stage 1 AKS Cluster" and click on "Run Workflow" on the right side. After a few seconds the pipeline step will display which you can inspect by drilling into it.
 <br><img src="./images/runWorkflow.PNG" width="800"/><br>
 
 ### Workflow Progress
