@@ -1,8 +1,7 @@
 # Stage 2 Ingress Controller
 
 ## Hosting a Single Container
-### Introduction
-In this stage you will learn about Ingress Controllers and why we need them.
+In this stage you will learn about ingress controllers and why we need them.
 
 An ingress controller is a fancy name for a proxy or LoadBalancer which routes the traffic to its designated services inside your Kubernetes cluster. Without it we would need to supply each pod with its own public IP address.
 
@@ -12,13 +11,13 @@ Learn more about:
 ### Stage 2 Ingress Controller
 In our example code the pipeline is already ready to go and will deploy an nginx based ingress controller, which we will use later to create our routes.
 
-To make our life's easier we used a publicly available Helm Chart. But we wont go deeper into Helm Charts here, so we ask you kindly just to accept this as a service in your cluster to manage your ingoing routing. [What is Helm?](https://helm.sh/)
+To make it easier we used a publicly available Helm chart. But we will not go deeper into it here, so we ask you kindly just to accept this as a service in your cluster to manage your ingoing routing. If you would like to know more about it: [What is Helm?](https://helm.sh/)
 
-### Helm Chart we used
+### Helm Chart We Used
 Helm Chart Name: *ingress-nginx/ingress-nginx*
 
-### Run your Pipeline
-Simply run the Stage 2 Workflow
+### Run Your Pipeline
+Simply run the stage 2 workflow
 
 `#File: .github/workflows/ingress.yml`
 ```

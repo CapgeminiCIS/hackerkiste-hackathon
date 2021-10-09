@@ -26,7 +26,7 @@ In the pipeline you will see that we first authenticate against the AKS cluster 
 - `az acr login`
 
 ## Docker Build
-Next we the image is created via Docker Build and is first stored locally under the name `2021hackathon.azurecr.io/nginx:latest`. 
+Next the image is created via Docker Build and is first stored locally under the name `2021hackathon.azurecr.io/nginx:latest`. 
 
 It is important to have the URL of the image repository in the name as this will signal the Docker daemon where to push the image to. 
 
@@ -36,7 +36,7 @@ Images with the same name and tag will override each other once pushed to the re
 
 `.github/workflows/frontend_backend.yml`
 ```     
-      # Build Old NGINX Frontend
+      # Build old NGINX frontend
       - name: Build NGINX Base Frontend
         run: docker build -t ${{ env.registryLoginServer }}/nginx:latest ./stage_3_SingleContainer
 
