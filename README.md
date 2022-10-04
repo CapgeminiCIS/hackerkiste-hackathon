@@ -1,5 +1,5 @@
-# Capgemini Hackathon for the Hackerkiste 2021
-Welcome to Capgemini's hackathon for the [Hackerkiste 2021](https://2021.hackerkiste.de). All hints are provided in this repository. If you need any assistance at any point, do not hesitate to ask us. We are here to help you.
+# Capgemini Hackathon for the Hackerkiste 2022
+Welcome to Capgemini's hackathon for the [Hackerkiste 2022](https://2022.hackerkiste.de). All hints are provided in this repository. If you need any assistance at any point, do not hesitate to ask us. We are here to help you.
 
 The following architecture overview displays the services you will provision during this Hackathon (on the left hand side of the box labelled 'Azure').
 
