@@ -26,7 +26,7 @@ In the pipeline you will see that we first authenticate against the AKS cluster 
 - `az acr login`
 
 ## Docker Build
-Next the image is created via Docker Build and is first stored locally under the name `hackerkiste.azurecr.io/nginx:latest`. 
+Next the image is created via Docker Build and is first stored locally under the name `hackerkisteregistry.azurecr.io/nginx:latest`. 
 
 It is important to have the URL of the image repository in the name as this will signal the Docker daemon where to push the image to. 
 
@@ -56,7 +56,7 @@ Finally we apply the image as a service on our Kubernetes cluster. The following
 
 ### Definition 1 `deployment.yaml`
 In the `deployment.yaml` we define our nginx server service.
-The service name will be nginx and it will be available via Port 80. Also we use the freshly generated `hackerkiste.azurecr.io/nginx:latest`
+The service name will be nginx and it will be available via Port 80. Also we use the freshly generated `hackerkisteregistry.azurecr.io/nginx:latest`
 
 <br>
 
