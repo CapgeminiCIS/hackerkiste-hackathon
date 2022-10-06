@@ -95,7 +95,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: 2021hackathon.azurecr.io/nginx:latest
+        image: hackerkisteregistry.azurecr.io/nginx:latest
         ports:
         - containerPort: 80
         resources: {}
