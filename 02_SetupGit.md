@@ -15,7 +15,7 @@ In this Step we will now copy the project to your computer. Therefore we will us
 <br><img src="./images/get_repo_url.PNG" width="400"/>
 
 In the clone window you can copy your *project url*
-> For example https://github.com/***/hackerkiste-2021-hackathon-dev.git
+> For example https://github.com/***/hackerkiste-hackathon-dev.git
 
 ## Add project to visual studio code
 When opening a new window of VS Code you will see the *Getting Started* page which offers you the option to *Clone Git Repository...*
