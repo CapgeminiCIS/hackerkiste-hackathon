@@ -7,7 +7,7 @@ In this tutorial you will create or authenticate with your Github Account and fo
 If you do not own your own Github account create a new one at [Github](https://Github.com/). If you already have a Github account, you can use that one.
 
 ## Fork Repository
-1. Open [https://Github.com/CapgeminiCIS/hackerkiste-2021-hackathon-dev](https://github.com/CapgeminiCIS/hackerkiste-hackathon-dev)
+1. Open [https://Github.com/CapgeminiCIS/hackerkiste-hackathon-dev](https://github.com/CapgeminiCIS/hackerkiste-hackathon-dev)
 2. Click on fork on the top right corner 
 <br><img src="./images/forkbutton.PNG" width="400"/>
 1. When asked where to fork the project, select the default location which is most likely your account name.
